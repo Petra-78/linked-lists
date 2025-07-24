@@ -83,6 +83,30 @@ class LinkedList {
         }
         current.nextNode = null
     }
+
+    contains(value) {
+        let current = this.head
+        while (current !== null) {
+            if (current.value === value) return console.log(true) 
+            current = current.nextNode
+        }
+        return console.log(false)
+    }
+
+    find(value) {
+        let current = this.head
+        let index = 1
+        while (current !== null) {
+            if(current.value === value) {
+                console.log(index)
+                return index
+            }
+            current = current.nextNode
+            index++
+        }
+        return console.log("no such string")
+
+    }
 }
 
    
