@@ -26,18 +26,12 @@ class LinkedList {
     }
 
     size() {
-        let count = 1
+        let count = 0
         let current = this.head
 
-        if(this.head === null) {
-            count = 0
-        }
-
-        else {
-            while(current.nextNode !== null) {
-                count += 1
-                current = current.nextNode
-            }
+        while(current !== null) {
+            count += 1
+            current = current.nextNode
         }
         return count
     }
@@ -49,21 +43,21 @@ class LinkedList {
 
     getTail() {
         let current = this.head
+        if (this.head === null) return null;
         while (current.nextNode !== null) {
            current = current.nextNode 
         }
-        console.log(current)
+        return current
     }
 
     at(index) {
-        let count = 1
+        let count = 0
         let current = this.head
 
-        if (index <= 0) return null
+        if (index < 0) return null
 
         while (current !== null) {
             if (count === index) {
-                console.log(current)
                 return current
             }
             current = current.nextNode
@@ -76,6 +70,7 @@ class LinkedList {
         if(this.head === null) return null
         if(this.head.nextNode === null) {
             this.head = null
+            return
         }
 
         let current = this.head
@@ -88,34 +83,33 @@ class LinkedList {
     contains(value) {
         let current = this.head
         while (current !== null) {
-            if (current.value === value) return console.log(true) 
+            if (current.value === value) return true
             current = current.nextNode
         }
-        return console.log(false)
+        return false
     }
 
     find(value) {
         let current = this.head
-        let index = 1
+        let index = 0
         while (current !== null) {
             if(current.value === value) {
-                console.log(index)
                 return index
             }
             current = current.nextNode
             index++
         }
-        return console.log("no such string")
+        return null
     }
 
     toString() {
         let current = this.head
         let print = ``
         while (current !== null) {
-            print += `( ${current.value} ) ->`
+            print += `( ${current.value} ) -> `
             current = current.nextNode
         }
-        return console.log(`${print} null`)
+        return print + "null"
     }
 
     insertAt(value, index) {
@@ -135,13 +129,12 @@ class LinkedList {
     }
 
     removeAt(index) {
-        if (index <= 0) return console.log("there is nothing to remove here");
-        let current = this.head
-        let count = 1
-        while (count < index) {
-            current = current.nextNode
-            count++
+        if (index < 0) return console.log("there is nothing to remove");
+        if (index === 0) {
+            this.head = this.head.nextNode 
+            return
         }
+
         const previous = this.at(index - 1)
         if (previous === null) return
 

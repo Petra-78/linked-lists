@@ -1,15 +1,25 @@
 import { LinkedList } from "./LinkedLists.js"
-import { Node } from "./Node.js"
 
 
 
 const list = new LinkedList()
 
-list.append("five")
-list.append("four")
-list.append("three")
-list.prepend("one")
+list.append("dog");
+list.append("cat");
+list.append("parrot");
+list.append("hamster");
+list.append("snake");
+list.append("turtle");
 
-list.size()
 
-console.log(list)
+// console.log(list.size())
+// console.log(list.getTail())
+// console.log(list.at(4))
+// console.log (list.pop())
+// console.log (list.toString())
+// console.log(list.insertAt("meow", 0))
+// console.log (list.removeAt(2))
+
+
+console.log(list.toString());
+// console.log(list)
