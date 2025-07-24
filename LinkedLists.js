@@ -117,6 +117,37 @@ class LinkedList {
         }
         return console.log(`${print} null`)
     }
+
+    insertAt(value, index) {
+        if (index < 0) return;
+
+        if (index === 0) {
+        this.prepend(value)
+        return
+        }
+
+        const previous = this.at(index - 1)
+        if (previous === null) return
+
+        const newNode = new Node(value)
+        newNode.nextNode = previous.nextNode
+        previous.nextNode = newNode
+    }
+
+    removeAt(index) {
+        if (index <= 0) return console.log("there is nothing to remove here");
+        let current = this.head
+        let count = 1
+        while (count < index) {
+            current = current.nextNode
+            count++
+        }
+        const previous = this.at(index - 1)
+        if (previous === null) return
+
+        previous.nextNode = previous.nextNode.nextNode
+    }
+
 }
 
    
