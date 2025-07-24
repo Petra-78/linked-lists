@@ -69,6 +69,7 @@ class LinkedList {
             current = current.nextNode
             count++
         }
+        return null
     }
 
     pop() {
@@ -105,7 +106,16 @@ class LinkedList {
             index++
         }
         return console.log("no such string")
+    }
 
+    toString() {
+        let current = this.head
+        let print = ``
+        while (current !== null) {
+            print += `( ${current.value} ) ->`
+            current = current.nextNode
+        }
+        return console.log(`${print} null`)
     }
 }
 
