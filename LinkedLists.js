@@ -54,6 +54,22 @@ class LinkedList {
         }
         console.log(current)
     }
+
+    at(index) {
+        let count = 1
+        let current = this.head
+
+        if (index <= 0) return null
+
+        while (current !== null) {
+            if (count === index) {
+                console.log(current)
+                return current
+            }
+            current = current.nextNode
+            count++
+        }
+    }
 }
    
 
