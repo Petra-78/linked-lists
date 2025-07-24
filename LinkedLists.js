@@ -41,6 +41,19 @@ class LinkedList {
         }
         return count
     }
+
+    getHead() {
+        console.log(this.head)
+        return this.head
+    }
+
+    getTail() {
+        let current = this.head
+        while (current.nextNode !== null) {
+           current = current.nextNode 
+        }
+        console.log(current)
+    }
 }
    
 
